@@ -87,3 +87,8 @@ video {
   pointer-events: none;
   z-index: 999;
 }
+.caption {
+  color: #ff5fa2;
+  font-size: 16px;
+  margin-top: 8px;
+}
