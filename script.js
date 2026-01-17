@@ -1,72 +1,79 @@
-// MUSIC
 const music = document.getElementById("bgMusic");
-document.getElementById("musicBtn").onclick = () => music.play();
-
-// HEART RAIN (Beat Synced)
-const hearts = document.querySelector(".hearts");
-
-function dropHeart() {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 12 + "px";
-  hearts.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 6000);
-}
-
-// Drop hearts faster when music plays
-music.addEventListener("play", () => {
-  setInterval(dropHeart, 300); // beat-like rhythm
-});
-
-// COUNTDOWN (18 Jan 2026)
-const birthday = new Date("2026-01-18T00:00:00");
-setInterval(() => {
-  const now = new Date();
-  const diff = birthday - now;
-
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("timer").innerText =
-    `${d} Days ${h}h ${m}m ${s}s`;
-}, 1000);
-
-// DAYS TOGETHER (18 Dec 2024, 1:20 AM)
-const start = new Date("2024-12-18T01:20:00");
-setInterval(() => {
-  const now = new Date();
-  const diff = now - start;
-
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("togetherTime").innerText =
-    `${d} Days ${h}h ${m}m ${s}s`;
-}, 1000);
-
-// TYPING LETTER
-const text = `Hon ❤️
-
-From the moment you came into my life,  
-everything started to feel warmer,  
-brighter and more meaningful.
-
-Your smile is my favorite view,  
-your laugh is my favorite sound,  
-and your love is my favorite feeling.
-
-Happy Birthday my love 🎂💖  
-Forever yours.`;
+const text = "From the moment you came into my life, everything became warmer, brighter and more meaningful 💖";
+const typing = document.getElementById("typing");
 
 let i = 0;
-setInterval(() => {
+
+// Auto play music
+document.body.addEventListener("click", () => {
+  music.play();
+});
+
+// Typing effect synced to beat
+function typeText() {
   if (i < text.length) {
+    typing.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 120);
+  }
+}
+typeText();
+
+// Days together counter
+const startDate = new Date("2024-12-18T01:20:00");
+function updateDays() {
+  const now = new Date();
+  const diff = now - startDate;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("daysTogether").innerText =
+    `${days} days 💞`;
+}
+updateDays();
+
+// Birthday countdown (18 Jan)
+const bday = new Date("2026-01-18T00:00:00");
+function updateCountdown() {
+  const now = new Date();
+  const diff = bday - now;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerText =
+    `${d}d ${h}h ${m}m ${s}s`;
+}
+setInterval(updateCountdown, 1000);
+
+// Photo slideshow
+let imgIndex = 1;
+setInterval(() => {
+  imgIndex++;
+  if (imgIndex > 12) imgIndex = 1;
+  document.getElementById("slideImg").src = `img/img${imgIndex}.jpg`;
+}, 4000);
+
+// Video slideshow
+const videos = [
+  "img/video1.mp4",
+  "img/video2.mp4",
+  "img/video3.mp4",
+  "img/video4.mp4",
+  "img/video5.mp4"
+];
+
+let vIndex = 0;
+const videoPlayer = document.getElementById("videoSlide");
+
+function nextVideo() {
+  videoPlayer.src = videos[vIndex];
+  videoPlayer.play();
+  vIndex = (vIndex + 1) % videos.length;
+}
+
+videoPlayer.addEventListener("ended", nextVideo);
+nextVideo();  if (i < text.length) {
     document.getElementById("typingText").innerHTML += text.charAt(i);
     i++;
   }
