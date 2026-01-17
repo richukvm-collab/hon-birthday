@@ -1,90 +1,76 @@
 const music = document.getElementById("bgMusic");
-const startDate = new Date("2024-12-18T01:20:00");
+const lock = document.getElementById("lockScreen");
+const main = document.getElementById("mainSite");
+const passInput = document.getElementById("passwordInput");
+
 const birthday = new Date("2026-01-18T00:00:00");
 
-// Auto play music on scroll
-window.addEventListener("scroll", () => {
-  if (music.paused) music.play();
-}, { once: true });
+function updateCountdown() {
+  const now = new Date();
+  const diff = birthday - now;
 
-// Typing Love Letter
-const letter = `Dear Hon ❤️
+  if (diff <= 0) unlock();
 
-You are my favorite person.
-My peace. My happiness. My forever.
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff / 3600000) % 24;
+  const m = Math.floor(diff / 60000) % 60;
+  const s = Math.floor(diff / 1000) % 60;
 
-Happy Birthday my love 💖`;
-
-let i = 0;
-function typeText() {
-  if (i < letter.length) {
-    document.getElementById("typing").textContent += letter[i++];
-    setTimeout(typeText, 60);
-  }
+  document.getElementById("countdownText").innerText =
+    `Unlocks in ${d}d ${h}h ${m}m ${s}s`;
 }
-typeText();
+setInterval(updateCountdown, 1000);
 
-// Days Together
+document.getElementById("unlockBtn").onclick = () => {
+  if (passInput.value === "hon123") unlock();
+};
+
+function unlock() {
+  lock.style.display = "none";
+  main.classList.remove("hidden");
+  music.play();
+  startTyping();
+  startHearts();
+}
+
+// Typing
+const text = "Happy Birthday my love ❤️ You make my world brighter every day...";
+let i = 0;
+function startTyping() {
+  const t = document.getElementById("typingText");
+  const timer = setInterval(() => {
+    t.innerText += text[i];
+    i++;
+    if (i >= text.length) clearInterval(timer);
+  }, 80);
+}
+
+// Days together
+const startDate = new Date("2024-12-18T01:20:00");
 setInterval(() => {
-  const diff = new Date() - startDate;
-  const days = Math.floor(diff / (1000*60*60*24));
-  document.getElementById("daysTogether").textContent =
-    `${days} days together ❤️`;
+  const now = new Date();
+  const diff = now - startDate;
+  const days = Math.floor(diff / 86400000);
+  document.getElementById("daysTogether").innerText = `${days} days ❤️`;
 }, 1000);
-
-// Birthday Countdown
-setInterval(() => {
-  const diff = birthday - new Date();
-  if (diff > 0) {
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor(diff / (1000*60*60)) % 24;
-    const m = Math.floor(diff / (1000*60)) % 60;
-    const s = Math.floor(diff / 1000) % 60;
-    document.getElementById("countdown").textContent =
-      `${d}d ${h}h ${m}m ${s}s`;
-  }
-}, 1000);
-
-// Photo Slideshow
-let photoIndex = 1;
-setInterval(() => {
-  photoIndex = photoIndex % 12 + 1;
-  document.getElementById("photoSlide").src = `img/img${photoIndex}.jpg`;
-}, 4000);
-
-// Video Slideshow
-const videos = [
-  "img/vid1.mp4",
-  "img/vid2.mp4",
-  "img/vid3.mp4",
-  "img/vid4.mp4",
-  "img/vid5.mp4"
-];
-
-let vIndex = 0;
-const video = document.getElementById("videoSlide");
-video.src = videos[0];
-
-setInterval(() => {
-  vIndex = (vIndex + 1) % videos.length;
-  video.style.opacity = 0;
-  setTimeout(() => {
-    video.src = videos[vIndex];
-    video.style.opacity = 1;
-  }, 800);
-}, 8000);
 
 // Hearts
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.fontSize = (Math.random()*16 + 10) + "px";
-  document.querySelector(".hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 8000);
-}, 350);
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("span");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = "6s";
+    document.querySelector(".hearts").appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+}
 
-// Night Mode
-document.getElementById("nightBtn").onclick = () => {
-  document.body.classList.toggle("night");
-};
+// Scroll reveal
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
