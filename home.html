@@ -5,61 +5,29 @@
   <title>Happy Birthday Hon 🎂</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-  <script>
+<body>
+
+<h1>Happy Birthday, Hon 🎂💖</h1>
+<p>You are my favorite person in the whole world.</p>
+
+<a class="nav-btn" href="love.html">💌 Love Letter</a>
+<a class="nav-btn" href="photos.html">📸 Our Photos</a>
+<a class="nav-btn" href="videos.html">🎬 Our Videos</a>
+<a class="nav-btn" href="birthday.html">🎉 Birthday Wish</a>
+
+<audio autoplay loop>
+  <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 500);
-  </script>
-<body>
-<audio autoplay loop>
-  <source src="music/music.mp3" type="audio/mpeg">
-</audio>
-<audio id="bgMusic" loop>
-  <source src="music/music.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="playMusic()">🎵 Play Music</button>
-
-<h1>Happy Birthday, Hon 🎂💖</h1>
-<p>Together since 18th December 💕</p>
-<p id="together"></p>
-
-<p>This little surprise is just for you 🥹</p>
-
-<div class="nav">
-  <a class="nav-btn" href="love.html">💌 Love Message</a>
-  <a class="nav-btn" href="photos.html">📸 Our Photos</a>
-  <a class="nav-btn" href="videos.html">🎬 Our Videos</a>
-  <a class="nav-btn" href="birthday.html">🎉 Birthday Wish</a>
-</div>
-
-<script src="script.js"></script>
-
-<script>
-function playMusic() {
-  document.getElementById("bgMusic").play();
-}
-
-// DAYS TOGETHER COUNTER
-const togetherEl = document.getElementById("together");
-const startDate = new Date("December 18, 2025 01:20:00");
-
-setInterval(() => {
-  const now = new Date();
-  const diff = now - startDate;
-
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  togetherEl.innerHTML = `Together for<br>${d}d ${h}h ${m}m ${s}s 💖`;
-}, 1000);
+  setTimeout(() => heart.remove(), 5000);
+}, 600);
 </script>
 
 </body>
