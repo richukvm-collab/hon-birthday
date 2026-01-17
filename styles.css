@@ -1,213 +1,99 @@
 body {
   margin: 0;
   font-family: "Courier New", monospace;
-  background: #fff0f5;
-  color: #333;
+  background: #ffe6ec;
+  color: #8b0000;
   text-align: center;
   overflow-x: hidden;
-  transition: background 0.5s, color 0.5s;
-}
-
-h1, h2 {
-  color: #ff5fa2;
 }
 
 section {
-  padding: 50px 20px;
+  padding: 40px 20px;
 }
 
-.intro {
-  min-height: 100vh;
+h1, h2 {
+  color: #b00020;
+}
+
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: #ffe6ec;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-#typing {
-  font-size: 18px;
-  max-width: 90%;
-  margin: auto;
+#lockScreen input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #b00020;
+  margin: 10px;
 }
 
-.slideshow img {
-  width: 80%;
+#lockScreen button {
+  background: #b00020;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   border-radius: 20px;
-  animation: zoom 4s infinite alternate;
 }
 
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
+#mainSite {
+  display: none;
 }
 
-/* Polaroid */
-.polaroid .frame {
+.polaroid {
   background: white;
   padding: 10px;
-  width: 80%;
-  margin: 20px auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  width: 260px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .polaroid img {
   width: 100%;
+  border-radius: 10px;
+  animation: zoom 12s infinite alternate;
 }
 
-.polaroid p {
-  font-size: 14px;
-  margin: 5px 0;
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
 }
 
-/* Video */
-video {
-  width: 85%;
+.video-section video {
+  width: 90%;
   border-radius: 20px;
-  transition: opacity 1s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#nightBtn {
+  background: #b00020;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 20px;
 }
 
 /* Hearts */
 .hearts span {
   position: fixed;
-  top: -10px;
-  font-size: 22px;
-  animation: fall 6s linear;
-}
-
-@keyframes fall {
-  to { transform: translateY(110vh); }
-}
-
-/* Lock screen */
-#lockScreen {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #ffe6f0;
-}
-
-/* Night mode */
-.night {
-  background: #0f0f1a;
-  color: white;
-}
-
-.night h1, .night h2 {
-  color: #ff9ed1;
-}
-.slideshow img {
-  width: 100%;
-  border-radius: 20px;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.slideshow img.active {
-  opacity: 1;
-  transform: scale(1.12);
-}
-
-.hearts span {
-  position: fixed;
-  top: -10px;
+  bottom: -10px;
   font-size: 20px;
-  animation: fall 6s linear;
+  animation: float 8s linear infinite;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
 
+/* Night Mode */
 .night {
-  background: #1c1c1c;
-  color: white;
-}
-
-.night h1, .night h2 {
-  color: #ff9ed1;
-}  transform: scale(1.12);
-}
-
-.hearts span {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: fall 6s linear;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
-}
-
-.night {
-  background: #1c1c1c;
-  color: white;
-}
-
-.night h1, .night h2 {
-  color: #ff9ed1;
-}
-/* 🎉 Birthday Ending Animation */
-#birthday-end {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(180deg, #ffd6e8, #ffb6d9);
-  position: relative;
-  overflow: hidden;
-}
-
-.end-card {
-  background: rgba(255,255,255,0.9);
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(255,105,180,0.6);
-  animation: glow 2s infinite alternate;
-  max-width: 90%;
-}
-
-.end-title {
-  font-size: 2rem;
-  color: #ff4f9a;
-}
-
-.end-text {
-  font-size: 1.1rem;
-  margin-top: 15px;
-  font-family: "Courier New", monospace;
-  color: #444;
-  min-height: 120px;
-}
-
-.end-sign {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #ff4f9a;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 20px rgba(255,105,180,0.4); }
-  to { box-shadow: 0 0 40px rgba(255,105,180,0.8); }
-}
-
-/* 💖 Falling hearts */
-.heart {
-  position: absolute;
-  top: -10px;
-  font-size: 20px;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
+  background: #1a0010;
+  color: #ff4d6d;
 }
