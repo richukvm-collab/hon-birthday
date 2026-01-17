@@ -1,100 +1,75 @@
 body {
   margin: 0;
-  font-family: Poppins, sans-serif;
-  background: radial-gradient(#300000, #120000);
-  color: #ffb3b3;
+  font-family: "Courier New", monospace;
+  background: radial-gradient(#2b0000, #000);
+  color: #ff4d6d;
   text-align: center;
   overflow-x: hidden;
 }
 
-.tapToPlay {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #ff0033;
-  color: white;
-  padding: 10px;
-  z-index: 999;
+#lockScreen {
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-h1, h2 {
-  color: #ff4d6d;
-  text-shadow: 0 0 10px #ff0033;
+#lockScreen input {
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+#lockScreen button {
+  margin-top:10px;
+  padding:10px 20px;
+  background:#ff1a4d;
+  color:white;
+  border:none;
+  border-radius:10px;
 }
 
 section {
-  min-height: 100vh;
   padding: 60px 20px;
 }
 
-.slideshow figure {
-  position: absolute;
-  width: 80%;
-  max-width: 320px;
-  margin: auto;
-  opacity: 0;
-  animation: zoomFade 20s infinite;
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 20px;
 }
 
-.slideshow figure:nth-child(1) { animation-delay: 0s; }
-.slideshow figure:nth-child(2) { animation-delay: 5s; }
-.slideshow figure:nth-child(3) { animation-delay: 10s; }
-.slideshow figure:nth-child(4) { animation-delay: 15s; }
-
-@keyframes zoomFade {
-  0% { opacity: 0; transform: scale(1); }
-  10% { opacity: 1; transform: scale(1.1); }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
+.gallery img {
+  height: 280px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff4d6d;
+  animation: zoom 12s infinite alternate;
 }
 
 figcaption {
-  color: #ffd6d6;
-  margin-top: 10px;
+  color:#ff99aa;
+  font-size:14px;
+  margin-top:5px;
 }
 
-.video-slideshow video {
-  width: 80%;
-  max-width: 320px;
-  position: absolute;
-  opacity: 0;
-  animation: videoFade 15s infinite;
-}
-
-.video-slideshow video:nth-child(1){animation-delay:0s}
-.video-slideshow video:nth-child(2){animation-delay:5s}
-.video-slideshow video:nth-child(3){animation-delay:10s}
-
-@keyframes videoFade {
-  0%{opacity:0}
-  20%{opacity:1}
-  80%{opacity:1}
-  100%{opacity:0}
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
 }
 
 .hearts span {
   position: fixed;
-  font-size: 20px;
+  top: -50px;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  from { transform: translateY(-10vh); }
   to { transform: translateY(110vh); }
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.confetti::after {
-  content: "🎉 🎊 🎉 🎊 🎉";
-  font-size: 40px;
+canvas {
+  width:100%;
+  height:300px;
 }
