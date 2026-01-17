@@ -1,13 +1,21 @@
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   background: radial-gradient(#300000, #120000);
   color: #ffb3b3;
   text-align: center;
   overflow-x: hidden;
 }
 
-.hidden { display: none; }
+.tapToPlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ff0033;
+  color: white;
+  padding: 10px;
+  z-index: 999;
+}
 
 h1, h2 {
   color: #ff4d6d;
@@ -19,51 +27,19 @@ section {
   padding: 60px 20px;
 }
 
-#lockScreen {
-  height: 100vh;
-  background: #200000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-#lockScreen input {
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-}
-
-#lockScreen button {
-  background: #ff0033;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-}
-
-.slideshow img {
+.slideshow figure {
+  position: absolute;
   width: 80%;
   max-width: 320px;
-  border-radius: 20px;
-  position: absolute;
+  margin: auto;
   opacity: 0;
-  animation: zoomFade 48s infinite;
+  animation: zoomFade 20s infinite;
 }
 
-.slideshow img:nth-child(1) { animation-delay: 0s; }
-.slideshow img:nth-child(2) { animation-delay: 4s; }
-.slideshow img:nth-child(3) { animation-delay: 8s; }
-.slideshow img:nth-child(4) { animation-delay: 12s; }
-.slideshow img:nth-child(5) { animation-delay: 16s; }
-.slideshow img:nth-child(6) { animation-delay: 20s; }
-.slideshow img:nth-child(7) { animation-delay: 24s; }
-.slideshow img:nth-child(8) { animation-delay: 28s; }
-.slideshow img:nth-child(9) { animation-delay: 32s; }
-.slideshow img:nth-child(10) { animation-delay: 36s; }
-.slideshow img:nth-child(11) { animation-delay: 40s; }
-.slideshow img:nth-child(12) { animation-delay: 44s; }
+.slideshow figure:nth-child(1) { animation-delay: 0s; }
+.slideshow figure:nth-child(2) { animation-delay: 5s; }
+.slideshow figure:nth-child(3) { animation-delay: 10s; }
+.slideshow figure:nth-child(4) { animation-delay: 15s; }
 
 @keyframes zoomFade {
   0% { opacity: 0; transform: scale(1); }
@@ -72,19 +48,22 @@ section {
   40% { opacity: 0; }
 }
 
+figcaption {
+  color: #ffd6d6;
+  margin-top: 10px;
+}
+
 .video-slideshow video {
   width: 80%;
   max-width: 320px;
   position: absolute;
   opacity: 0;
-  animation: videoFade 25s infinite;
+  animation: videoFade 15s infinite;
 }
 
 .video-slideshow video:nth-child(1){animation-delay:0s}
 .video-slideshow video:nth-child(2){animation-delay:5s}
 .video-slideshow video:nth-child(3){animation-delay:10s}
-.video-slideshow video:nth-child(4){animation-delay:15s}
-.video-slideshow video:nth-child(5){animation-delay:20s}
 
 @keyframes videoFade {
   0%{opacity:0}
@@ -115,11 +94,7 @@ section {
   transform: translateY(0);
 }
 
-#nightBtn {
-  background: #ff0033;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  margin-bottom: 40px;
+.confetti::after {
+  content: "🎉 🎊 🎉 🎊 🎉";
+  font-size: 40px;
 }
