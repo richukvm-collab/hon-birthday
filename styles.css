@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -5,15 +7,16 @@ body {
   text-align: center;
   background: url("img/img3.jpg") no-repeat center center fixed;
   background-size: cover;
+  min-height: 100vh;
   position: relative;
 }
 
-/* Dreamy blur overlay */
+/* Dark dreamy overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(30, 0, 10, 0.75);
+  background: rgba(20, 0, 10, 0.75);
   backdrop-filter: blur(12px);
   z-index: -1;
 }
@@ -29,16 +32,17 @@ body::before {
 }
 
 #tapScreen p {
-  font-size: 24px;
+  font-size: 22px;
   color: #ff4d6d;
 }
 
 section {
-  background: rgba(20, 0, 10, 0.6);
+  background: rgba(30, 0, 15, 0.65);
   border-radius: 20px;
   margin: 30px auto;
   padding: 60px 20px;
   max-width: 900px;
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.3);
 }
 
 h1, h2 {
@@ -50,6 +54,7 @@ h1, h2 {
 p {
   line-height: 1.9;
   font-size: 17px;
+  color: #ffd6e0;
 }
 
 .quote {
@@ -58,11 +63,14 @@ p {
   font-size: 17px;
   line-height: 1.8;
   margin: 20px 0;
+  padding: 10px 20px;
+  background: rgba(255, 77, 109, 0.1);
+  border-radius: 10px;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 15px;
 }
 
@@ -91,21 +99,9 @@ figcaption {
   font-size: 22px;
   opacity: 0;
   animation: fadeIn 5s forwards;
+  color: #ffb3c6;
 }
 
 @keyframes fadeIn {
   to { opacity: 1; }
-}
-
-#hearts span {
-  position: fixed;
-  bottom: -20px;
-  animation: rise 5s linear;
-}
-
-@keyframes rise {
-  to {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
 }
