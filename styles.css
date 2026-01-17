@@ -87,3 +87,10 @@ img, video {
   font-size: 16px;
   margin-top: 8px;
 }
+video {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+  margin: 15px auto;
+  display: block;
+}
