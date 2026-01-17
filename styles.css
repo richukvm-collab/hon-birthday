@@ -32,14 +32,6 @@ h1, h2 {
   margin: 10px;
 }
 
-#lockScreen button {
-  background: #b00020;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-}
-
 #mainSite {
   display: none;
 }
@@ -67,7 +59,7 @@ h1, h2 {
 .video-section video {
   width: 90%;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: opacity 1s;
 }
 
 #nightBtn {
@@ -83,7 +75,7 @@ h1, h2 {
 .hearts span {
   position: fixed;
   bottom: -10px;
-  font-size: 20px;
+  font-size: 18px;
   animation: float 8s linear infinite;
 }
 
