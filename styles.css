@@ -1,107 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+const tapScreen = document.getElementById("tapScreen");
+const music = document.getElementById("bgMusic");
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #ffd6e0;
-  text-align: center;
-  background: url("img/img3.jpg") no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-  position: relative;
-}
+tapScreen.addEventListener("click", () => {
+  music.play();
+  tapScreen.style.display = "none";
+});
 
-/* Dark dreamy overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(20, 0, 10, 0.75);
-  backdrop-filter: blur(12px);
-  z-index: -1;
-}
-
-#tapScreen {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 0, 5, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-#tapScreen p {
-  font-size: 22px;
-  color: #ff4d6d;
-}
-
-section {
-  background: rgba(30, 0, 15, 0.65);
-  border-radius: 20px;
-  margin: 30px auto;
-  padding: 60px 20px;
-  max-width: 900px;
-  box-shadow: 0 0 30px rgba(255, 77, 109, 0.3);
-}
-
-h1, h2 {
-  font-family: 'Great Vibes', cursive;
-  color: #ff4d6d;
-  text-shadow: 0 0 20px #ff4d6d;
-}
-
-p {
-  line-height: 1.9;
-  font-size: 17px;
-  color: #ffd6e0;
-}
-
-.quote {
-  font-style: italic;
-  color: #ffb3c6;
-  font-size: 17px;
-  line-height: 1.8;
-  margin: 20px 0;
-  padding: 10px 20px;
-  background: rgba(255, 77, 109, 0.1);
-  border-radius: 10px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-}
-
-.gallery img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #ff4d6d;
-  animation: zoom 10s infinite alternate;
-}
-
-figcaption {
-  font-size: 14px;
-  margin-top: 5px;
-  color: #ff8fa3;
-}
-
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
-}
-
-#cinematicEnd {
-  margin-top: 40px;
-  font-size: 22px;
-  opacity: 0;
-  animation: fadeIn 5s forwards;
-  color: #ffb3c6;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 12) + "px";
+  document.getElementById("hearts").appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 300);
