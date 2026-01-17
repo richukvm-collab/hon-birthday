@@ -1,40 +1,93 @@
-/* PASSWORD + COUNTDOWN */
-const countdown = document.getElementById("countdown");
-const unlockBox = document.getElementById("unlockBox");
+// MUSIC
+const music = document.getElementById("bgMusic");
+document.getElementById("musicBtn").onclick = () => music.play();
 
-const birthday = new Date("January 18, 2026 00:00:00").getTime();
+// HEART RAIN (Beat Synced)
+const hearts = document.querySelector(".hearts");
 
-setInterval(() => {
-  if (!countdown) return;
+function dropHeart() {
+  const heart = document.createElement("span");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 12 + "px";
+  hearts.appendChild(heart);
 
-  const now = new Date().getTime();
-  const diff = birthday - now;
-
-  if (diff <= 0) {
-    countdown.innerHTML = "Happy Birthday, Hon 🎂💖";
-    unlockBox.style.display = "block";
-  } else {
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor((diff / (1000*60*60)) % 24);
-    const m = Math.floor((diff / (1000*60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    countdown.innerHTML = `Opens in<br>${d}d ${h}h ${m}m ${s}s 💖`;
-  }
-}, 1000);
-
-function unlock() {
-  const pass = document.getElementById("password").value;
-  if (pass === "hon123") {
-    unlockBox.style.display = "block";
-  } else {
-    alert("Wrong password 😜");
-  }
+  setTimeout(() => heart.remove(), 6000);
 }
 
-/* NIGHT MODE */
-function toggleNight() {
+// Drop hearts faster when music plays
+music.addEventListener("play", () => {
+  setInterval(dropHeart, 300); // beat-like rhythm
+});
+
+// COUNTDOWN (18 Jan 2026)
+const birthday = new Date("2026-01-18T00:00:00");
+setInterval(() => {
+  const now = new Date();
+  const diff = birthday - now;
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("timer").innerText =
+    `${d} Days ${h}h ${m}m ${s}s`;
+}, 1000);
+
+// DAYS TOGETHER (18 Dec 2024, 1:20 AM)
+const start = new Date("2024-12-18T01:20:00");
+setInterval(() => {
+  const now = new Date();
+  const diff = now - start;
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("togetherTime").innerText =
+    `${d} Days ${h}h ${m}m ${s}s`;
+}, 1000);
+
+// TYPING LETTER
+const text = `Hon ❤️
+
+From the moment you came into my life,  
+everything started to feel warmer,  
+brighter and more meaningful.
+
+Your smile is my favorite view,  
+your laugh is my favorite sound,  
+and your love is my favorite feeling.
+
+Happy Birthday my love 🎂💖  
+Forever yours.`;
+
+let i = 0;
+setInterval(() => {
+  if (i < text.length) {
+    document.getElementById("typingText").innerHTML += text.charAt(i);
+    i++;
+  }
+}, 45);
+
+// SLIDESHOW (Beat-Synced Speed)
+const images = document.querySelectorAll(".slideshow img");
+let index = 0;
+
+music.addEventListener("play", () => {
+  setInterval(() => {
+    images.forEach(img => img.classList.remove("active"));
+    images[index].classList.add("active");
+    index = (index + 1) % images.length;
+  }, 2500); // sync feel with song
+});
+
+// NIGHT MODE
+document.getElementById("nightBtn").onclick = () => {
   document.body.classList.toggle("night");
+};  document.body.classList.toggle("night");
 }
 
 /* HEARTS */
