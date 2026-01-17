@@ -7,10 +7,20 @@
 </head>
 <body>
 
+<button onclick="toggleNight()">🌙 Night Mode</button>
+
 <h1>Happy Birthday, Hon 🎂💖</h1>
-<p>You are my favorite person in the whole world.</p>
+
+<p>
+This little surprise is just for you,  
+because you mean everything to me 💕
+</p>
+
+<h3>We have been together for 💖</h3>
+<p id="together"></p>
 
 <a class="nav-btn" href="love.html">💌 Love Letter</a>
+<a class="nav-btn" href="why.html">💖 Why I Love You</a>
 <a class="nav-btn" href="photos.html">📸 Our Photos</a>
 <a class="nav-btn" href="videos.html">🎬 Our Videos</a>
 <a class="nav-btn" href="birthday.html">🎉 Birthday Wish</a>
@@ -19,16 +29,7 @@
   <source src="music/music.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 600);
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
