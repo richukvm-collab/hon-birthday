@@ -1,127 +1,125 @@
-// 🎵 MUSIC AUTOPLAY
 const music = document.getElementById("bgMusic");
-
-function startMusic() {
-  music.play().catch(() => {
-    document.body.addEventListener("click", () => music.play(), { once: true });
-  });
-}
-
-// 🔓 BIRTHDAY UNLOCK
-const birthday = new Date("2025-01-18T00:00:00");
-
 const lockScreen = document.getElementById("lockScreen");
 const mainSite = document.getElementById("mainSite");
-const lockMsg = document.getElementById("lockMsg");
-const forceBtn = document.getElementById("forceOpen");
 
-function checkBirthday() {
-  const now = new Date();
-
-  if (now >= birthday) {
-    unlockSite();
-  } else {
-    const diff = birthday - now;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    lockMsg.textContent = `Only ${days} days left, hon 💕`;
-  }
-}
-
-function unlockSite() {
-  lockScreen.style.display = "none";
-  mainSite.style.display = "block";
-  startMusic();
-  startTyping();
-}
-
-forceBtn.addEventListener("click", unlockSite);
-checkBirthday();
-
-// 💞 DAYS TOGETHER COUNTER
+const birthday = new Date("2026-01-18T00:00:00");
 const startDate = new Date("2024-12-18T01:20:00");
 
-function updateDaysTogether() {
-  const now = new Date();
-  const diff = now - startDate;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const mins = Math.floor((diff / (1000 * 60)) % 60);
-  const secs = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("daysTogether").textContent =
-    `${days} days ${hours}h ${mins}m ${secs}s ❤️`;
-}
-
-setInterval(updateDaysTogether, 1000);
-updateDaysTogether();
-
-// ⏳ BIRTHDAY COUNTDOWN
-function updateCountdown() {
+function updateLockCountdown() {
   const now = new Date();
   const diff = birthday - now;
 
   if (diff <= 0) {
-    document.getElementById("countdown").textContent = "🎉 IT'S YOUR BIRTHDAY HON 💖";
-    return;
+    unlockSite();
+  } else {
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor(diff / (1000*60*60)) % 24;
+    const m = Math.floor(diff / (1000*60)) % 60;
+    document.getElementById("countdownText").textContent =
+      `Opens in ${d}d ${h}h ${m}m`;
   }
+}
+setInterval(updateLockCountdown, 1000);
 
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
+document.getElementById("unlockBtn").onclick = () => {
+  if (document.getElementById("passwordInput").value === "hon123") {
+    unlockSite();
+  }
+};
 
-  document.getElementById("countdown").textContent =
-    `${d} days ${h}h ${m}m ${s}s 🎂`;
+function unlockSite() {
+  lockScreen.style.display = "none";
+  mainSite.style.display = "block";
+  music.play();
+  typeText();
+  startSlides();
+  startVideos();
+  createHearts();
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+// Typing love letter
+const letter = `Dear Hon ❤️
 
-// 🖋️ TYPING LOVE LETTER
-const letter = `Dear hon ❤️
+From the moment you came into my life, everything became brighter.
 
-From the moment you came into my life,
-everything felt warmer, brighter, and more meaningful.
+You are my safe place, my happiness, my forever.
 
-Your smile is my favorite view,
-your laugh is my favorite sound,
-and your love is my favorite feeling.
-
-Happy Birthday my love 💖
-Forever yours,
-Richu`;
+Happy Birthday my love 💖`;
 
 let i = 0;
-const typingEl = document.getElementById("typing");
-
-function startTyping() {
+function typeText() {
   if (i < letter.length) {
-    typingEl.textContent += letter.charAt(i);
+    document.getElementById("typing").textContent += letter[i];
     i++;
-    setTimeout(startTyping, 50);
+    setTimeout(typeText, 60);
   }
 }
 
-// 💗 HEART RAIN
-const hearts = document.querySelector(".hearts");
+// Days together
+function updateDays() {
+  const now = new Date();
+  const diff = now - startDate;
+  const days = Math.floor(diff / (1000*60*60*24));
+  document.getElementById("daysTogether").textContent = `${days} days ❤️`;
+}
+setInterval(updateDays, 1000);
 
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.textContent = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = 3 + Math.random() * 3 + "s";
-  hearts.appendChild(heart);
+// Birthday countdown
+function updateCountdown() {
+  const now = new Date();
+  const diff = birthday - now;
+  if (diff > 0) {
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor(diff / (1000*60*60)) % 24;
+    const m = Math.floor(diff / (1000*60)) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+    document.getElementById("countdown").textContent =
+      `${d}d ${h}h ${m}m ${s}s`;
+  }
+}
+setInterval(updateCountdown, 1000);
 
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
+// Photo slideshow
+let photoIndex = 1;
+function startSlides() {
+  setInterval(() => {
+    photoIndex = photoIndex % 12 + 1;
+    document.getElementById("photoSlide").src = `img/img${photoIndex}.jpg`;
+  }, 4000);
+}
 
-// 🌙 NIGHT MODE
-const nightBtn = document.getElementById("nightBtn");
+// Video slideshow
+const videos = ["v1.mp4","v2.mp4","v3.mp4","v4.mp4","v5.mp4"];
+let vIndex = 0;
+function startVideos() {
+  const video = document.getElementById("videoSlide");
+  video.src = "img/" + videos[0];
+  setInterval(() => {
+    vIndex = (vIndex + 1) % videos.length;
+    video.style.opacity = 0;
+    setTimeout(() => {
+      video.src = "img/" + videos[vIndex];
+      video.style.opacity = 1;
+    }, 800);
+  }, 8000);
+}
 
-nightBtn.addEventListener("click", () => {
+// Hearts rain
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("span");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random()*20 + 10) + "px";
+    document.querySelector(".hearts").appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 300);
+}
+
+// Night mode
+document.getElementById("nightBtn").onclick = () => {
   document.body.classList.toggle("night");
-});
+};
 
 // Auto night mode
 const hour = new Date().getHours();
