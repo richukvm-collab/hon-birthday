@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Happy Birthday My Love ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <audio id="bgMusic" preload="auto" loop>
-  <source src="img/Gigi%20Perez%20-%20Sailor%20Song%20[Official%20Audio]%20-%20Gigi%20Perez.mp3" type="audio/mpeg">
+  <source src="img/music.mp3" type="audio/mpeg">
 </audio>
 
+<!-- LOCK SCREEN -->
 <div id="lockScreen">
   <h1>🎁 Surprise Locked</h1>
-  <p id="lockMsg"></p>
-  <button id="forceOpen">Open Anyway 💖</button>
+  <p id="countdownText"></p>
+  <input type="password" id="passwordInput" placeholder="Password 💖">
+  <button id="unlockBtn">Unlock</button>
 </div>
 
-<div id="mainSite" style="display:none;">
+<!-- MAIN SITE -->
+<div id="mainSite">
 
   <div class="hearts"></div>
 
   <section class="intro">
-    <h1>POV : It’s My Love Anna’s Birthday 💖</h1>
+    <h1>POV : It's My Love Anna's Birthday ❤️</h1>
     <p id="typing"></p>
   </section>
 
   <section>
-    <h2>💑 Days Together</h2>
+    <h2>💞 Days Together</h2>
     <p id="daysTogether"></p>
   </section>
 
@@ -39,61 +42,31 @@
   </section>
 
   <section class="slideshow">
-    <img id="slideImg" src="img/img1.jpg">
+    <h2>📸 Our Memories</h2>
+    <div class="polaroid">
+      <img id="photoSlide" src="img/img1.jpg">
+    </div>
   </section>
 
-  <section class="polaroid">
-    <div class="frame"><img src="img/img2.jpg"><p>My favorite smile 💕</p></div>
-    <div class="frame"><img src="img/img3.jpg"><p>My safe place 😘</p></div>
+  <section class="video-section">
+    <h2>🎬 Our Moments</h2>
+    <video id="videoSlide" autoplay muted loop playsinline></video>
   </section>
 
-  <section class="videos">
-    <video id="videoSlide" muted></video>
+  <button id="nightBtn">🌙 Night Mode</button>
+
+  <section>
+    <h2>📱 Scan for Love</h2>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://richukvm-collab.github.io/hon-birthday/">
   </section>
 
-  <section class="qr">
-    <h2>📱 Scan to Open</h2>
-    <img src="img/qr.png">
+  <section id="birthdayEnd">
+    <h1>Happy Birthday My Love 🎉❤️</h1>
+    <p id="endTyping"></p>
   </section>
-
-  <button id="nightToggle">🌙 Toggle Night Mode</button>
 
 </div>
 
 <script src="script.js"></script>
-</body>
-</html>
-<script src="script.js"></script>
-</body>
-</html><section class="gallery">
-  <h2>📸 Our Memories</h2>
-
-  <div class="slideshow">
-    <img src="img/img1.jpg">
-    <img src="img/img2.jpg">
-    <img src="img/img3.jpg">
-    <img src="img/img4.jpg">
-    <img src="img/img5.jpg">
-    <img src="img/img6.jpg">
-    <img src="img/img7.jpg">
-    <img src="img/img8.jpg">
-    <img src="img/img9.jpg">
-    <img src="img/img10.jpg">
-    <img src="img/img11.jpg">
-    <img src="img/img12.jpg">
-  </div>
-</section>
-
-<button id="nightBtn">🌙 Night Mode</button>
-
-<script src="script.js"></script>
-<!-- 🎉 Birthday Ending Section -->
-<section id="birthday-end">
-  <div class="end-card">
-    <h1 class="end-title">Happy Birthday My Love 🎂💖</h1>
-    <p class="end-text" id="endTyping"></p>
-    <p class="end-sign">Forever Yours, ❤️</p>
-  </div>
-</section>
 </body>
 </html>
