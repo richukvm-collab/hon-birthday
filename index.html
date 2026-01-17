@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Happy Birthday My Love ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+
+<audio id="bgMusic" src="img/Gigi Perez - Sailor Song [Official Audio] - Gigi Perez.mp3"></audio>
 
 <div class="hearts"></div>
 
 <section class="intro">
-  <h1>POV : It’s My Love Anna’s Birthday 😌❤️</h1>
-  <p>Scroll slowly... this is just for you 💕</p>
+  <h1>POV : It’s My Love Anna’s Birthday 💖</h1>
+  <p class="type-text" id="typing"></p>
+</section>
 
-  <button id="musicBtn">🎵 Play Music</button>
-  <audio id="bgMusic" src="Gigi Perez - Sailor Song [Official Audio] - Gigi Perez.mp3"></audio>
+<section class="counter">
+  <h2>💑 Days Together</h2>
+  <p id="daysTogether"></p>
 </section>
 
 <section class="countdown">
-  <h2>⏳ Countdown to Your Birthday</h2>
-  <div id="timer"></div>
+  <h2>🎂 Birthday Countdown</h2>
+  <p id="countdown"></p>
 </section>
 
-<section class="together">
-  <h2>🕰️ We’ve Been Together For</h2>
-  <div id="togetherTime"></div>
+<section class="slideshow">
+  <img id="slideImg" src="img/img1.jpg" />
 </section>
 
-<section class="letter">
-  <h2>💌 Dear Hon</h2>
-  <p id="typingText"></p>
+<section class="videos">
+  <video id="videoSlide" autoplay muted loop></video>
 </section>
 
-<section class="gallery">
+<script src="script.js"></script>
+</body>
+</html><section class="gallery">
   <h2>📸 Our Memories</h2>
 
   <div class="slideshow">
