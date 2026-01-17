@@ -252,3 +252,42 @@ if (together) {
     together.innerHTML = `Together for<br>${d}d ${h}h ${m}m ${s}s 💖`;
   }, 1000);
 }
+// 💌 Birthday ending typing message
+const endMessage = `Another year older, but forever my favorite person 💕
+Thank you for being my happiness, my peace, my everything.
+I promise to love you more every single day.
+Happy Birthday, my beautiful Anna 🎂💖`;
+
+let endIndex = 0;
+function typeEndMessage() {
+  if (endIndex < endMessage.length) {
+    document.getElementById("endTyping").innerHTML += endMessage.charAt(endIndex);
+    endIndex++;
+    setTimeout(typeEndMessage, 50);
+  }
+}
+
+// Trigger typing when user scrolls to end
+window.addEventListener("scroll", () => {
+  const endSection = document.getElementById("birthday-end");
+  const rect = endSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight && endIndex === 0) {
+    typeEndMessage();
+  }
+});
+
+// 💖 Heart rain
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
