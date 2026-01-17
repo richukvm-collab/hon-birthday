@@ -49,20 +49,20 @@ setInterval(() => {
 let photoIndex = 1;
 setInterval(() => {
   photoIndex = photoIndex % 12 + 1;
-  document.getElementById("photoSlide").src = `img/img${photoIndex}.jpg`;
+  document.getElementById("photoSlide").src = `img${photoIndex}.jpg`;
 }, 4000);
 
 // Video Slideshow
-const videos = ["v1.mp4","v2.mp4","v3.mp4","v4.mp4","v5.mp4"];
+const videos = ["vid1.mp4","vid2.mp4","vid3.mp4","vid4.mp4","vid5.mp4"];
 let vIndex = 0;
 const video = document.getElementById("videoSlide");
-video.src = "img/" + videos[0];
+video.src = videos[0];
 
 setInterval(() => {
   vIndex = (vIndex + 1) % videos.length;
   video.style.opacity = 0;
   setTimeout(() => {
-    video.src = "img/" + videos[vIndex];
+    video.src = videos[vIndex];
     video.style.opacity = 1;
   }, 800);
 }, 8000);
