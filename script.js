@@ -33,3 +33,14 @@ function checkPassword() {
     alert("Wrong password 😅 Try again!");
   }
 }
+function launchFireworks() {
+  const fireworks = document.createElement("div");
+  fireworks.className = "fireworks";
+  document.body.appendChild(fireworks);
+
+  setTimeout(() => fireworks.remove(), 5000);
+}
+
+window.onload = () => {
+  launchFireworks();
+};
