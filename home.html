@@ -5,6 +5,16 @@
   <title>Happy Birthday Hon 🎂</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+  <script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+  </script>
 <body>
 <audio autoplay loop>
   <source src="music/music.mp3" type="audio/mpeg">
