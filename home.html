@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday Hon 🎂</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMusic()">🎵 Play Music</button>
+
+<h1>Happy Birthday, Hon 🎂💖</h1>
+<p>Together since 18th December 💕</p>
+<p id="together"></p>
+
+<p>This little surprise is just for you 🥹</p>
+
+<div class="nav">
+  <a class="nav-btn" href="love.html">💌 Love Message</a>
+  <a class="nav-btn" href="photos.html">📸 Our Photos</a>
+  <a class="nav-btn" href="videos.html">🎬 Our Videos</a>
+  <a class="nav-btn" href="birthday.html">🎉 Birthday Wish</a>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+
+// DAYS TOGETHER COUNTER
+const togetherEl = document.getElementById("together");
+const startDate = new Date("December 18, 2025 01:20:00");
+
+setInterval(() => {
+  const now = new Date();
+  const diff = now - startDate;
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  togetherEl.innerHTML = `Together for<br>${d}d ${h}h ${m}m ${s}s 💖`;
+}, 1000);
+</script>
+
+</body>
+</html>
