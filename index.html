@@ -6,35 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-<audio id="bgMusic" src="img/Gigi Perez - Sailor Song [Official Audio] - Gigi Perez.mp3"></audio>
+<audio id="bgMusic" preload="auto" loop>
+  <source src="img/Gigi%20Perez%20-%20Sailor%20Song%20[Official%20Audio]%20-%20Gigi%20Perez.mp3" type="audio/mpeg">
+</audio>
 
-<div class="hearts"></div>
+<div id="lockScreen">
+  <h1>🎁 Surprise Locked</h1>
+  <p id="lockMsg"></p>
+  <button id="forceOpen">Open Anyway 💖</button>
+</div>
 
-<section class="intro">
-  <h1>POV : It’s My Love Anna’s Birthday 💖</h1>
-  <p class="type-text" id="typing"></p>
-</section>
+<div id="mainSite" style="display:none;">
 
-<section class="counter">
-  <h2>💑 Days Together</h2>
-  <p id="daysTogether"></p>
-</section>
+  <div class="hearts"></div>
 
-<section class="countdown">
-  <h2>🎂 Birthday Countdown</h2>
-  <p id="countdown"></p>
-</section>
+  <section class="intro">
+    <h1>POV : It’s My Love Anna’s Birthday 💖</h1>
+    <p id="typing"></p>
+  </section>
 
-<section class="slideshow">
-  <img id="slideImg" src="img/img1.jpg" />
-</section>
+  <section>
+    <h2>💑 Days Together</h2>
+    <p id="daysTogether"></p>
+  </section>
 
-<section class="videos">
-  <video id="videoSlide" autoplay muted loop></video>
-</section>
+  <section>
+    <h2>🎂 Birthday Countdown</h2>
+    <p id="countdown"></p>
+  </section>
 
+  <section class="slideshow">
+    <img id="slideImg" src="img/img1.jpg">
+  </section>
+
+  <section class="polaroid">
+    <div class="frame"><img src="img/img2.jpg"><p>My favorite smile 💕</p></div>
+    <div class="frame"><img src="img/img3.jpg"><p>My safe place 😘</p></div>
+  </section>
+
+  <section class="videos">
+    <video id="videoSlide" muted></video>
+  </section>
+
+  <section class="qr">
+    <h2>📱 Scan to Open</h2>
+    <img src="img/qr.png">
+  </section>
+
+  <button id="nightToggle">🌙 Toggle Night Mode</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 <script src="script.js"></script>
 </body>
 </html><section class="gallery">
