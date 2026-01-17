@@ -44,3 +44,19 @@ function launchFireworks() {
 window.onload = () => {
   launchFireworks();
 };
+function updateCounter() {
+  const startDate = new Date("2023-12-18T01:20:00");
+  const now = new Date();
+  const diff = now - startDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("counter").innerHTML =
+    `${days} days, ${hours}h ${minutes}m ${seconds}s 💕`;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
