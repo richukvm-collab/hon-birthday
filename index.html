@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Happy Birthday My Love ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<div id="lockScreen">
-  <h1>🎁 Surprise Locked</h1>
-  <input type="password" id="password" placeholder="Enter password">
-  <button onclick="unlock()">Unlock 💖</button>
+<audio id="bgMusic" src="img/music.mp3" loop></audio>
+
+<div id="tapScreen">
+  <p>Tap to Start 💖</p>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="img/music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="hearts"></div>
-
-<div id="mainContent" style="display:none">
+<div id="hearts"></div>
 
 <section class="intro">
   <h1>POV: It’s My Love Anna’s Birthday ❤️</h1>
-  <p id="typing"></p>
-  <p class="tap">Tap anywhere to start 💕</p>
+
+  <p>
+    Today isn’t just another day.  
+    Today is the day the most beautiful soul was born.  
+    The day my favorite person came into this world.
+  </p>
+
+  <p>
+    You are my happiness, my comfort, my forever.  
+    This little surprise is just a small way of saying  
+    how much you mean to me.
+  </p>
+</section>
+
+<section class="counter">
+  <h2>💞 Days Together</h2>
+  <p id="daysTogether"></p>
 </section>
 
 <section class="counter">
@@ -34,40 +44,65 @@
   <p id="countdown"></p>
 </section>
 
-<section class="counter">
-  <h2>💑 Days Together</h2>
-  <p id="daysTogether"></p>
-</section>
-
 <section class="photos">
   <h2>📸 Our Memories</h2>
-  <div class="gallery">
-    <figure><img src="img/img1.jpg"><figcaption>Your cutest smile ❤️</figcaption></figure>
-    <figure><img src="img/img2.jpg"><figcaption>My favorite memory 💕</figcaption></figure>
-    <figure><img src="img/img3.jpg"><figcaption>You + Red = Perfect ❤️</figcaption></figure>
-    <figure><img src="img/img4.jpg"><figcaption>Always beautiful ✨</figcaption></figure>
+
+  <div class="photo-block">
+    <img src="img/img1.jpg">
+    <p>Your smile melts my heart every single time.  
+    No matter how my day goes, seeing you happy makes everything brighter.</p>
+  </div>
+
+  <div class="photo-block">
+    <img src="img/img2.jpg">
+    <p>Every moment with you feels like a memory worth keeping forever.</p>
+  </div>
+
+  <div class="photo-block">
+    <img src="img/img3.jpg">
+    <p>You don’t even realize how beautiful you are to me.</p>
+  </div>
+
+  <div class="photo-block">
+    <img src="img/img4.jpg">
+    <p>Being with you feels like home.</p>
   </div>
 </section>
 
 <section class="letter">
   <h2>Why I Love You ❤️</h2>
+
   <p>
-    I love the way you smile,  
-    the way you make my bad days better,  
-    the way you understand me without words.  
-    You are my peace, my happiness, my forever.  
+    I love you for the way you understand me without me saying a word.  
+    You see my heart even when I try to hide it.
+  </p>
+
+  <p>
+    I love how you turn ordinary days into special memories.  
+    Just talking to you makes everything feel brighter.
+  </p>
+
+  <p>
+    You are my peace in chaos, my smile in sadness,  
+    and my forever in this world.
   </p>
 </section>
 
 <section class="end">
   <h1>Happy Birthday My Love 🎉❤️</h1>
-  <p>Forever Yours 💖</p>
-  <canvas id="confetti"></canvas>
+
+  <p>
+    You are my today, my tomorrow, and my forever.  
+    No matter where life takes us, my heart will always choose you.
+  </p>
+
+  <p>
+    Thank you for being you.  
+    Thank you for loving me.  
+    I love you endlessly. 💖
+  </p>
 </section>
 
-</div>
-
 <script src="script.js"></script>
-
 </body>
 </html>
