@@ -1,16 +1,76 @@
-const tapScreen = document.getElementById("tapScreen");
-const music = document.getElementById("bgMusic");
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #ffd6e0;
+  text-align: center;
+  background: url("img/img3.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
 
-tapScreen.addEventListener("click", () => {
-  music.play();
-  tapScreen.style.display = "none";
-});
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 0, 10, 0.75);
+  backdrop-filter: blur(14px);
+  z-index: -1;
+}
 
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (14 + Math.random() * 12) + "px";
-  document.getElementById("hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 300);
+section {
+  background: rgba(30, 0, 15, 0.75);
+  border-radius: 20px;
+  margin: 30px auto;
+  padding: 50px 20px;
+  max-width: 900px;
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.3);
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #ff4d6d;
+  text-shadow: 0 0 20px #ff4d6d;
+}
+
+p {
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.quote {
+  font-style: italic;
+  color: #ffb3c6;
+  margin: 15px 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #ff4d6d;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #ffc2d1;
+  margin-top: 5px;
+}
+
+#tapScreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  color: #ff4d6d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  z-index: 999;
+}
