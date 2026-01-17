@@ -152,3 +152,62 @@ video {
 .night h1, .night h2 {
   color: #ff9ed1;
 }
+/* 🎉 Birthday Ending Animation */
+#birthday-end {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #ffd6e8, #ffb6d9);
+  position: relative;
+  overflow: hidden;
+}
+
+.end-card {
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255,105,180,0.6);
+  animation: glow 2s infinite alternate;
+  max-width: 90%;
+}
+
+.end-title {
+  font-size: 2rem;
+  color: #ff4f9a;
+}
+
+.end-text {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  font-family: "Courier New", monospace;
+  color: #444;
+  min-height: 120px;
+}
+
+.end-sign {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ff4f9a;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(255,105,180,0.4); }
+  to { box-shadow: 0 0 40px rgba(255,105,180,0.8); }
+}
+
+/* 💖 Falling hearts */
+.heart {
+  position: absolute;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
