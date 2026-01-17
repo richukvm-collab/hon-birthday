@@ -1,18 +1,13 @@
 body {
   margin: 0;
   font-family: "Courier New", monospace;
-  background: #ffe6ec;
-  color: #8b0000;
+  background: #2a0015;
+  color: #ff4d6d;
   text-align: center;
-  overflow-x: hidden;
 }
 
 section {
   padding: 40px 20px;
-}
-
-h1, h2 {
-  color: #b00020;
 }
 
 .polaroid {
@@ -21,7 +16,6 @@ h1, h2 {
   border-radius: 15px;
   width: 260px;
   margin: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .polaroid img {
@@ -41,30 +35,18 @@ h1, h2 {
   transition: opacity 1s;
 }
 
-#nightBtn {
-  background: #b00020;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin: 20px;
-}
-
-/* Hearts */
 .hearts span {
   position: fixed;
   bottom: -10px;
-  font-size: 18px;
   animation: float 8s linear infinite;
 }
 
 @keyframes float {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
 }
 
-/* Night Mode */
 .night {
-  background: #1a0010;
+  background: black;
   color: #ff4d6d;
 }
