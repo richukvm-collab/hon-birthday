@@ -1,40 +1,52 @@
 body {
   margin: 0;
-  font-family: 'Courier New', monospace;
   background: #fff0f5;
-  color: #333;
+  font-family: 'Courier New', monospace;
   text-align: center;
   overflow-x: hidden;
 }
 
-h1, h2 {
+h1 {
   color: #ff5fa2;
+  font-size: 28px;
 }
 
 section {
-  padding: 60px 20px;
+  padding: 50px 20px;
 }
 
-button {
-  background: #ff5fa2;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
+.type-text {
+  font-size: 18px;
+  color: #333;
+  max-width: 90%;
+  margin: auto;
 }
 
-.intro {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.slideshow img {
+  width: 80%;
+  border-radius: 20px;
+  animation: zoom 4s infinite alternate;
 }
 
-#timer, #togetherTime {
-  font-size: 20px;
-  margin-top: 15px;
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* Floating hearts */
+.hearts::before {
+  content: "💖 💗 💕 💘 💓 💞";
+  position: fixed;
+  width: 100%;
+  top: 0;
+  animation: float 8s infinite linear;
+  font-size: 24px;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-100vh); }
+}  margin-top: 15px;
 }
 
 .letter {
