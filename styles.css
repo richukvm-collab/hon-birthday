@@ -1,16 +1,19 @@
-const tapScreen = document.getElementById("tapScreen");
-const music = document.getElementById("bgMusic");
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #ffd6e0;
+  text-align: center;
+  background: url("img/img3.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
 
-tapScreen.addEventListener("click", () => {
-  music.play();
-  tapScreen.style.display = "none";
-});
-
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (14 + Math.random() * 12) + "px";
-  document.getElementById("hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 300);
+/* Dreamy blur overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 0, 10, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}
