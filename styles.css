@@ -4,7 +4,6 @@ body {
   background: radial-gradient(circle, #40000f, #120006);
   color: #ffd6e0;
   text-align: center;
-  overflow-x: hidden;
 }
 
 #tapScreen {
@@ -36,11 +35,13 @@ body {
 
 section {
   padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 36px;
+  font-size: 42px;
   color: #ff4d6d;
   text-shadow: 0 0 20px #ff4d6d;
 }
@@ -49,18 +50,23 @@ h2 {
   color: #ff8fa3;
 }
 
-.counter p {
-  font-size: 18px;
-  color: #ffb3c6;
+p {
+  line-height: 1.9;
+  font-size: 17px;
 }
 
-.photo-block img {
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
   width: 100%;
-  max-width: 360px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 0 30px #ff4d6d;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #ff4d6d;
   animation: zoom 12s infinite alternate;
 }
 
@@ -69,15 +75,7 @@ h2 {
   to { transform: scale(1.1); }
 }
 
-.photo-block p {
-  max-width: 600px;
-  margin: 15px auto;
-  line-height: 1.8;
-}
-
 #typeText {
-  max-width: 700px;
-  margin: auto;
   font-size: 17px;
   line-height: 1.9;
 }
@@ -92,10 +90,12 @@ h2 {
   to { transform: translateY(100vh); }
 }
 
-#quotes {
+#confetti span {
   position: fixed;
-  bottom: 80px;
-  width: 100%;
-  font-size: 14px;
-  color: #ffb3c6;
+  top: -10px;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+  to { transform: translateY(100vh) rotate(360deg); }
 }
