@@ -2,7 +2,7 @@ const music = document.getElementById("bgMusic");
 const startDate = new Date("2024-12-18T01:20:00");
 const birthday = new Date("2026-01-18T00:00:00");
 
-// Auto music on scroll (mobile safe)
+// Auto play music on scroll
 window.addEventListener("scroll", () => {
   if (music.paused) music.play();
 }, { once: true });
@@ -24,7 +24,7 @@ function typeText() {
 }
 typeText();
 
-// Days Together Counter
+// Days Together
 setInterval(() => {
   const diff = new Date() - startDate;
   const days = Math.floor(diff / (1000*60*60*24));
@@ -49,11 +49,18 @@ setInterval(() => {
 let photoIndex = 1;
 setInterval(() => {
   photoIndex = photoIndex % 12 + 1;
-  document.getElementById("photoSlide").src = `img${photoIndex}.jpg`;
+  document.getElementById("photoSlide").src = `img/img${photoIndex}.jpg`;
 }, 4000);
 
 // Video Slideshow
-const videos = ["vid1.mp4","vid2.mp4","vid3.mp4","vid4.mp4","vid5.mp4"];
+const videos = [
+  "img/vid1.mp4",
+  "img/vid2.mp4",
+  "img/vid3.mp4",
+  "img/vid4.mp4",
+  "img/vid5.mp4"
+];
+
 let vIndex = 0;
 const video = document.getElementById("videoSlide");
 video.src = videos[0];
@@ -67,7 +74,7 @@ setInterval(() => {
   }, 800);
 }, 8000);
 
-// Beat-synced Heart Rain
+// Hearts
 setInterval(() => {
   const heart = document.createElement("span");
   heart.innerHTML = "💗";
@@ -81,9 +88,3 @@ setInterval(() => {
 document.getElementById("nightBtn").onclick = () => {
   document.body.classList.toggle("night");
 };
-
-// Auto night mode
-const hour = new Date().getHours();
-if (hour >= 18 || hour <= 6) {
-  document.body.classList.add("night");
-}
