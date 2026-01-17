@@ -21,18 +21,6 @@ body {
   color: #ff4d6d;
 }
 
-#nightBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff4d6d;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 20px;
-  z-index: 100;
-}
-
 section {
   padding: 60px 20px;
   max-width: 800px;
@@ -46,13 +34,12 @@ h1 {
   text-shadow: 0 0 20px #ff4d6d;
 }
 
-h2 {
-  color: #ff8fa3;
-}
-
-p {
-  line-height: 1.9;
-  font-size: 17px;
+.quote {
+  background: rgba(255, 77, 109, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  margin: 15px 0;
+  font-style: italic;
 }
 
 .gallery {
@@ -70,32 +57,24 @@ p {
   animation: zoom 12s infinite alternate;
 }
 
+figcaption {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #ff8fa3;
+}
+
 @keyframes zoom {
   from { transform: scale(1); }
   to { transform: scale(1.1); }
 }
 
-#typeText {
-  font-size: 17px;
-  line-height: 1.9;
+#cinematicEnd {
+  margin-top: 40px;
+  font-size: 22px;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
 }
 
-#hearts span {
-  position: fixed;
-  top: -10px;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to { transform: translateY(100vh); }
-}
-
-#confetti span {
-  position: fixed;
-  top: -10px;
-  animation: confettiFall linear infinite;
-}
-
-@keyframes confettiFall {
-  to { transform: translateY(100vh) rotate(360deg); }
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
