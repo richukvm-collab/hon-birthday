@@ -1,56 +1,80 @@
-const tapScreen = document.getElementById("tapScreen");
-const music = document.getElementById("bgMusic");
-
-tapScreen.addEventListener("click", () => {
-  music.play();
-  tapScreen.style.display = "none";
-  launchConfetti();
-});
-
-// Night Mode
-document.getElementById("nightBtn").onclick = () => {
-  document.body.classList.toggle("dark");
-};
-
-// Hearts
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (14 + Math.random() * 12) + "px";
-  heart.style.animationDuration = (3 + Math.random() * 2) + "s";
-  document.getElementById("hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
-
-// Confetti
-function launchConfetti() {
-  for (let i = 0; i < 60; i++) {
-    const c = document.createElement("span");
-    c.innerHTML = "🎉";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.fontSize = (14 + Math.random() * 10) + "px";
-    c.style.animationDuration = (2 + Math.random() * 3) + "s";
-    document.getElementById("confetti").appendChild(c);
-    setTimeout(() => c.remove(), 5000);
-  }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #40000f, #120006);
+  color: #ffd6e0;
+  text-align: center;
 }
 
-// Typewriter
-const text = `
-I love you for the way you care about me.
-I love how your smile lights up my world.
-I love how your voice feels like home.
-I love the way you make life beautiful.
-I love you today, tomorrow, and forever.
-`;
-
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typeText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 40);
-  }
+#tapScreen {
+  position: fixed;
+  inset: 0;
+  background: #120006;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
-typeWriter();
+
+#tapScreen p {
+  font-size: 24px;
+  color: #ff4d6d;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: #ff4d6d;
+  text-shadow: 0 0 20px #ff4d6d;
+}
+
+.quote {
+  background: rgba(255, 77, 109, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  margin: 15px 0;
+  font-style: italic;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #ff4d6d;
+  animation: zoom 12s infinite alternate;
+}
+
+figcaption {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #ff8fa3;
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+#cinematicEnd {
+  margin-top: 40px;
+  font-size: 22px;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
