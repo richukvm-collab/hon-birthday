@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Happy Birthday My Love ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
+<!-- Music -->
 <audio id="bgMusic" preload="auto" loop>
   <source src="img/music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="hearts"></div>
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <h1>🎁 Surprise Locked</h1>
+  <p id="countdownText"></p>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button id="unlockBtn">Unlock 💖</button>
+</div>
 
-<section class="intro">
-  <h1>POV: It's My Love Anna’s Birthday ❤️</h1>
-  <p id="typing"></p>
-</section>
+<!-- MAIN SITE -->
+<div id="mainSite" class="hidden">
 
-<section>
-  <h2>💞 Days Together</h2>
-  <p id="daysTogether"></p>
-</section>
+  <div class="hearts"></div>
 
-<section>
-  <h2>🎂 Birthday Countdown</h2>
-  <p id="countdown"></p>
-</section>
+  <!-- INTRO -->
+  <section class="intro reveal">
+    <h1>POV: It's My Love Anna’s Birthday ❤️</h1>
+    <p id="typingText"></p>
+  </section>
 
-<section class="slideshow">
-  <h2>📸 Our Memories</h2>
-  <div class="polaroid">
-    <img id="photoSlide" src="img/img1.jpg">
-  </div>
-</section>
+  <!-- DAYS TOGETHER -->
+  <section class="reveal">
+    <h2>💞 Days Together</h2>
+    <p id="daysTogether"></p>
+  </section>
 
-<section class="video-section">
-  <h2>🎬 Our Moments</h2>
-  <video id="videoSlide" autoplay muted loop playsinline></video>
-</section>
+  <!-- PHOTO SLIDESHOW -->
+  <section class="reveal">
+    <h2>📸 Our Memories</h2>
+    <div class="slideshow">
+      <img src="img/img1.jpg">
+      <img src="img/img2.jpg">
+      <img src="img/img3.jpg">
+      <img src="img/img4.jpg">
+      <img src="img/img5.jpg">
+      <img src="img/img6.jpg">
+      <img src="img/img7.jpg">
+      <img src="img/img8.jpg">
+      <img src="img/img9.jpg">
+      <img src="img/img10.jpg">
+      <img src="img/img11.png">
+      <img src="img/img12.jpg">
+    </div>
+  </section>
 
-<button id="nightBtn">🌙 Night Mode</button>
+  <!-- VIDEO SLIDESHOW -->
+  <section class="reveal">
+    <h2>🎬 Our Moments</h2>
+    <div class="video-slideshow">
+      <video src="img/vid1.mp4" muted autoplay loop></video>
+      <video src="img/vid2.mp4" muted loop></video>
+      <video src="img/vid3.mp4" muted loop></video>
+      <video src="img/vid4.mp4" muted loop></video>
+      <video src="img/vid5.mp4" muted loop></video>
+    </div>
+  </section>
+
+  <!-- ENDING -->
+  <section class="ending reveal">
+    <h1>Happy Birthday My Love 🎂❤️</h1>
+    <p id="endTyping"></p>
+  </section>
+
+  <button id="nightBtn">🌙 Night Mode</button>
+
+</div>
 
 <script src="script.js"></script>
 </body>
