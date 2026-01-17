@@ -291,3 +291,24 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+// Birthday Ending Typing Effect
+const endText = `Another year older, but forever my favorite person 💕
+Thank you for being my happiness, my peace, my everything.
+I promise to love you more every single day.
+Happy Birthday, my beautiful Anna 🎂💖`;
+
+let i = 0;
+function typeEndMessage() {
+  if (i < endText.length) {
+    document.getElementById("endTyping").innerHTML += endText.charAt(i);
+    i++;
+    setTimeout(typeEndMessage, 60);
+  }
+}
+
+window.addEventListener("scroll", () => {
+  const endSection = document.getElementById("birthday-end");
+  if (endSection.getBoundingClientRect().top < window.innerHeight) {
+    typeEndMessage();
+  }
+});
