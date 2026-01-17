@@ -1,23 +1,30 @@
 body {
   margin: 0;
+  font-family: "Courier New", monospace;
   background: #fff0f5;
-  font-family: 'Courier New', monospace;
+  color: #333;
   text-align: center;
   overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
 }
 
-h1 {
+h1, h2 {
   color: #ff5fa2;
-  font-size: 28px;
 }
 
 section {
   padding: 50px 20px;
 }
 
-.type-text {
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#typing {
   font-size: 18px;
-  color: #333;
   max-width: 90%;
   margin: auto;
 }
@@ -33,37 +40,61 @@ section {
   to { transform: scale(1.1); }
 }
 
-/* Floating hearts */
-.hearts::before {
-  content: "💖 💗 💕 💘 💓 💞";
-  position: fixed;
-  width: 100%;
-  top: 0;
-  animation: float 8s infinite linear;
-  font-size: 24px;
-}
-
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-100vh); }
-}  margin-top: 15px;
-}
-
-.letter {
+/* Polaroid */
+.polaroid .frame {
   background: white;
-  margin: 20px;
+  padding: 10px;
+  width: 80%;
+  margin: 20px auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.polaroid img {
+  width: 100%;
+}
+
+.polaroid p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Video */
+video {
+  width: 85%;
   border-radius: 20px;
-  padding: 30px;
+  transition: opacity 1s;
 }
 
-.slideshow {
-  width: 90%;
-  max-width: 350px;
-  margin: auto;
-  position: relative;
-  height: 350px;
+/* Hearts */
+.hearts span {
+  position: fixed;
+  top: -10px;
+  font-size: 22px;
+  animation: fall 6s linear;
 }
 
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* Lock screen */
+#lockScreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffe6f0;
+}
+
+/* Night mode */
+.night {
+  background: #0f0f1a;
+  color: white;
+}
+
+.night h1, .night h2 {
+  color: #ff9ed1;
+}
 .slideshow img {
   width: 100%;
   border-radius: 20px;
