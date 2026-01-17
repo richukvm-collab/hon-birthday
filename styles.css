@@ -85,4 +85,27 @@ button {
 
 .night h1, .night h2 {
   color: #ff9ed1;
+}  transform: scale(1.12);
+}
+
+.hearts span {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall 6s linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+.night {
+  background: #1c1c1c;
+  color: white;
+}
+
+.night h1, .night h2 {
+  color: #ff9ed1;
 }
