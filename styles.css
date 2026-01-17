@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(#1a0005, #40000f);
-  color: #ffccd5;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #40000f, #120006);
+  color: #ffd6e0;
   text-align: center;
   overflow-x: hidden;
 }
@@ -10,7 +10,7 @@ body {
 #tapScreen {
   position: fixed;
   inset: 0;
-  background: #1a0005;
+  background: #120006;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,16 +18,35 @@ body {
 }
 
 #tapScreen p {
-  font-size: 22px;
+  font-size: 24px;
   color: #ff4d6d;
+}
+
+#nightBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  z-index: 100;
 }
 
 section {
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
-h1, h2 {
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
   color: #ff4d6d;
+  text-shadow: 0 0 20px #ff4d6d;
+}
+
+h2 {
+  color: #ff8fa3;
 }
 
 .counter p {
@@ -35,51 +54,48 @@ h1, h2 {
   color: #ffb3c6;
 }
 
-.photos {
-  max-width: 100%;
-}
-
-.photo-block {
-  margin: 40px auto;
-  max-width: 90%;
-}
-
 .photo-block img {
   width: 100%;
   max-width: 360px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 0 25px #ff4d6d;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #ff4d6d;
+  animation: zoom 12s infinite alternate;
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
 .photo-block p {
-  margin-top: 12px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #ffb3c6;
-}
-
-.letter p {
   max-width: 600px;
-  margin: 20px auto;
+  margin: 15px auto;
   line-height: 1.8;
 }
 
-.end {
-  padding-bottom: 100px;
+#typeText {
+  max-width: 700px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.9;
 }
 
 #hearts span {
   position: fixed;
   top: -10px;
-  color: pink;
-  font-size: 18px;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
+  to { transform: translateY(100vh); }
+}
+
+#quotes {
+  position: fixed;
+  bottom: 80px;
+  width: 100%;
+  font-size: 14px;
+  color: #ffb3c6;
 }
